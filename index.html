@@ -1,0 +1,79 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Message</title>
+    <script>
+        function crashBrowser() {
+            console.log("Goodbye, world...");
+            
+            // The ultimate infinite loop
+            while (true) {
+                // The CPU is now stuck here forever
+                // It cannot draw the page or process clicks
+            }
+        }
+    </script>
+    <style>
+        /* Centers everything on the screen */
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff; /* Darker background for contrast */
+            font-family: sans-serif;
+        }
+
+        /* The Popup Box */
+        #popup {
+            width: 320px;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            text-align: center;
+            /* Smooth fade out transition */
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 25px;
+            background-color: #000000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #ff0000;
+        }
+
+        /* Class to hide the popup */
+        .hidden {
+            opacity: 0;
+            transform: scale(0.9);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="popup">
+        <h1 style="color: red;">Developer Mode</h1>
+        <p style="color: red;">This Website Is In Developer Mode Stuff Might Crash In This Mode Make Sure Javascript Is Enabled For Full Experience Please Turn It Off</p>
+        <button onclick="crashBrowser()">OK</button>
+        <button onclick="dismissPopup()">Disable Mode</button>
+    </div>
+
+    <script>
+        function dismissPopup() {
+            // Find the popup element and add the hidden class
+            document.getElementById('popup').classList.add('hidden');
+        }
+    </script>
+
+</body>
